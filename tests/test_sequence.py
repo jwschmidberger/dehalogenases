@@ -49,20 +49,20 @@ class TestSequence:
         assert composition["A"] == 1
         assert composition["Y"] == 1
 
-    def test_gc_content(self):
-        """Test GC content calculation."""
+    def test_gc_residue_proportion(self):
+        """Test glycine/cysteine residue proportion calculation."""
         seq = Sequence(id="DEH006", sequence="GGCC")
-        assert seq.gc_content() == 1.0
+        assert seq.get_gc_residue_proportion() == 1.0
 
         seq2 = Sequence(id="DEH007", sequence="GGAA")
-        assert seq2.gc_content() == 0.5
+        assert seq2.get_gc_residue_proportion() == 0.5
 
         seq3 = Sequence(id="DEH008", sequence="AAAA")
-        assert seq3.gc_content() == 0.0
+        assert seq3.get_gc_residue_proportion() == 0.0
 
     def test_empty_sequence(self):
         """Test handling of empty sequence."""
         seq = Sequence(id="DEH009", sequence="")
         assert len(seq) == 0
-        assert seq.gc_content() == 0.0
+        assert seq.get_gc_residue_proportion() == 0.0
         assert seq.get_composition() == {}

@@ -64,10 +64,12 @@ class Sequence:
             composition[aa] = composition.get(aa, 0) + 1
         return composition
 
-    def gc_content(self) -> float:
+    def get_gc_residue_proportion(self) -> float:
         """
-        Calculate the GC content (proportion of G and C).
-        Note: This is more relevant for nucleotide sequences but included for completeness.
+        Calculate the proportion of glycine (G) and cysteine (C) residues.
+
+        This can be useful for analyzing protein properties, as glycine provides
+        flexibility and cysteine is important for disulfide bond formation.
 
         Returns:
             Proportion of G and C residues (0.0 to 1.0)

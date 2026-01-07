@@ -94,8 +94,9 @@ def run_clustal_omega(input_file, output_file):
             # In production, you would use MUSCLE, MAFFT, or Clustal Omega
             print(f"Creating alignment from {len(sequences)} sequences...")
             
-            # Simple approach: just format sequences with gaps for visualization
-            # This is NOT a real alignment, just for demonstration
+            # IMPORTANT: This is a DEMO fallback only!
+            # For production use, install Clustal Omega, MUSCLE, or MAFFT
+            # This simple approach just pads sequences with gaps - NOT a real alignment
             max_len = max(len(seq.seq) for seq in sequences)
             
             aligned_seqs = []
@@ -112,7 +113,8 @@ def run_clustal_omega(input_file, output_file):
             # Save as aligned FASTA
             SeqIO.write(aligned_seqs, output_file, "fasta")
             
-            print("⚠️  NOTE: This is a simple demo alignment (sequences padded with gaps)")
+            print("⚠️  NOTE: This is a DEMO alignment only (sequences padded with gaps)")
+            print("    For production analysis, install a proper MSA tool:")
             print("For production use, install Clustal Omega:")
             print("  Ubuntu/Debian: sudo apt-get install clustalo")
             print("  macOS: brew install clustal-omega")

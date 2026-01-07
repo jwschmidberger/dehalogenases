@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.colors import ListedColormap
 import numpy as np
+from collections import Counter
 from Bio import AlignIO
 
 # Add parent directory to path to import config
@@ -161,7 +162,6 @@ def create_conservation_plot(alignment_file, output_file):
             continue
         
         # Calculate conservation as frequency of most common residue
-        from collections import Counter
         counts = Counter(residues)
         most_common_count = counts.most_common(1)[0][1]
         conservation = most_common_count / len(residues)

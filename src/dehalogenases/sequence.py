@@ -2,7 +2,7 @@
 Sequence module for handling dehalogenase enzyme sequences.
 """
 
-from typing import Optional
+from typing import Dict, Optional
 
 
 class Sequence:
@@ -52,7 +52,7 @@ class Sequence:
             f"organism='{self.organism}', enzyme_class='{self.enzyme_class}')"
         )
 
-    def get_composition(self) -> dict[str, int]:
+    def get_composition(self) -> Dict[str, int]:
         """
         Calculate amino acid composition of the sequence.
 

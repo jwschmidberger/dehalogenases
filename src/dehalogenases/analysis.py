@@ -2,7 +2,7 @@
 Analysis module for dehalogenase sequence analysis and comparison.
 """
 
-from typing import List
+from typing import Dict, List, Optional, Union
 from .sequence import Sequence
 
 
@@ -11,7 +11,7 @@ class SequenceAnalyzer:
     Provides analysis tools for dehalogenase sequences.
     """
 
-    def __init__(self, sequences: List[Sequence] = None):
+    def __init__(self, sequences: Optional[List[Sequence]] = None):
         """
         Initialize a SequenceAnalyzer.
 
@@ -40,7 +40,7 @@ class SequenceAnalyzer:
             return 0.0
         return sum(len(seq) for seq in self.sequences) / len(self.sequences)
 
-    def get_length_statistics(self) -> dict:
+    def get_length_statistics(self) -> Dict[str, Union[int, float]]:
         """
         Get length statistics for all sequences.
 
